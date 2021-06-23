@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="20dp"
+    tools:context=".AddItem">
+
+    <TextView
+        android:id="@+id/tittle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/formTitle"
+        android:gravity="center"
+        android:fontFamily="@font/aclonica"
+        android:textSize="20sp"
+        android:textColor="@color/colorBrand2"
+
+        />
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Create an Account"
+        android:textColor="@color/red"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+
+        />
+    <TextView
+        android:id="@+id/selectone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/selectacat"
+        android:textColor="@color/blue"
+        android:layout_gravity="center"
+         android:textSize="20sp"
+        android:fontFamily="@font/nunito_extralight"
+        />
+    <Spinner
+        android:id="@+id/category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+
+        />
+
+    <LinearLayout
+        android:id="@+id/Checkbox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible">
+        <CheckBox android:id="@+id/men"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Men"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/women"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Women"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/kid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kid"
+            android:onClick="onCheckboxClicked"/>
+        <CheckBox android:id="@+id/old_men_or_women"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Old"
+            android:onClick="onCheckboxClicked"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/what"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/whatisit"
+        android:fontFamily="@font/baloo"
+        android:layout_marginTop="10dp"
+        android:inputType="text"
+        android:textColorHint="@color/ash"
+        android:background="@drawable/editbox"
+        />
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Address where you lost/found item"
+        android:inputType="textPostalAddress"
+        android:fontFamily="@font/baloo"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/ash"
+        android:background="@drawable/editbox"
+        />
+    <EditText
+        android:id="@+id/time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint=" Date Formate:dd/mm/yyyy"
+        android:clickable="false"
+        android:cursorVisible="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:inputType="datetime"
+        android:fontFamily="@font/baloo"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/ash"
+        android:background="@drawable/editbox"
+        />
+    <EditText
+        android:id="@+id/desc"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint=" Description(color,size,number details)"
+        android:inputType="textShortMessage"
+        android:fontFamily="@font/baloo"
+        android:gravity="top"
+        android:maxLength="200"
+        android:layout_marginTop="5dp"
+        android:textColorHint="@color/ash"
+        android:background="@drawable/editbox"
+        />
+    <Button
+        android:id="@+id/submitbtn"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:background="@drawable/home_btn"
+        android:textSize="15sp"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/baloo"
+        android:layout_marginTop="20dp"
+        android:text="Submit your request"
+         />
+
+</LinearLayout>
