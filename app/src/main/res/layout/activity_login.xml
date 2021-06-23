@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Login"
+    android:orientation="vertical"
+    android:background="@drawable/ui_one"
+    android:padding="50dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="250dp"
+
+         >
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="48dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="+880"
+            android:enabled="false"
+            android:backgroundTint="#ffffff"
+            />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="    Phone-number"
+            android:inputType="phone"
+            android:backgroundTint="#ffffff"
+            android:maxLength="11"
+
+            />
+
+    </LinearLayout>
+    <EditText
+        android:id="@+id/pass"
+        android:layout_width="300dp"
+        android:layout_height="45dp"
+        android:ems="10"
+        android:hint="Enter your Password"
+        android:inputType="textPassword"
+        android:backgroundTint="#ffffff"
+        />
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="Log in"
+        android:textColor="#ffffff"
+        android:background="@drawable/botton_shape"
+        android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+        <TextView
+            android:id="@+id/signup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Create an Account"
+            android:textColor="@color/blue"
+            android:onClick="SignUp"
+            />
+    <!--<TextView
+        android:id="@+id/forgotpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColor="@color/blue"
+        android:onClick="ResetPass"
+        />-->
+
+    </LinearLayout>
+    <TextView
+        android:id="@+id/warning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" Create an Account"
+        android:textColor="@color/red"
+        android:layout_gravity="center"
+        android:visibility="invisible"
+
+        />
+</LinearLayout>

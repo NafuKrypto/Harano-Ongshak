@@ -1,0 +1,28 @@
+package com.example.lostandfound;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class TermsandConditionClass extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate( savedInstanceState );
+        setContentView( R.layout.activity_termsand_condition_class );
+
+        Button button =findViewById( R.id.homeBtn );
+
+        button.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent( TermsandConditionClass.this,MainActivity.class );
+                startActivity( intent );
+                finish();
+            }
+        } );
+    }
+}

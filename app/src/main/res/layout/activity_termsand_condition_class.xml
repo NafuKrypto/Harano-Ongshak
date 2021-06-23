@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".TermsandConditionClass">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Terms And Conditions"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorBrand3"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:text="Harano is the lost and found service app as a fee app. This service is provided by the Harano at no cost and intended for use as is. If you choose use our service, than you agree to the collection and use information that we collect is used for providing the service. For better experience while using our service we may require you to provide us with certain personal identifiable information as like name, contact, e-mail address, location, Photo. "
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Changes to this privacy policy"
+        android:textStyle="bold"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:textColor="@color/colorBrand3"
+        android:textSize="17sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="we may update our privacy policy for time to time, we will notify you of any changes by posting the new privacy policy on this page."
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data"
+        android:textStyle="bold"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:textColor="@color/colorBrand3"
+        android:textSize="17sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Users data will always be secure ."
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="17sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Advertising cookies"
+        android:textStyle="bold"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:textColor="@color/colorBrand3"
+        android:textSize="17sp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="we may use third parties, such as Google, to serve ads."
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="15sp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="If you have any question or suggestions about our privacy policy, Please contact us"
+        android:fontFamily="@font/anonymous_pro_bold"
+        android:layout_marginBottom="10dp"
+        android:textSize="17sp"
+        />
+
+    <Button
+        android:id="@+id/homeBtn"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:background="@drawable/botton_shape"
+        android:text="back"
+        android:textColor="@color/white"
+        android:layout_marginTop="80dp"
+        android:gravity="center"
+        android:layout_gravity="center"/>
+
+</LinearLayout>

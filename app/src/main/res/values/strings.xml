@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name" translatable="false">Harano</string>
+    <string name="search_hint" translatable="false">Search here</string>
+    <string-array name="navigation_drawer_items_array">
+        <item>Connect</item>
+        <item>Fixtures</item>
+        <item>Table</item>
+    </string-array>
+    <string name="home">Home</string>
+    <string name="backtohome">Go back Home</string>
+    <string name="lostItem">Lost Item</string>
+    <string name="foundItem">Found Item</string>
+    <string name="addLostItem">Add Lost Item</string>
+    <string name="addFoundItem">Add Found Item</string>
+    <string name="QRcode">Apply For QR Code</string>
+    <string name="drawer_open" translatable="false">drawer open</string>
+    <string name="drawer_close" translatable="false">drawer close</string>
+    <string name="english" translatable="false">English</string>
+    <string name="bangla" translatable="false">বাংলা</string>
+
+    <string name="formTitle">Fill up the Form</string>
+    <string name="whatisit">What is it?</string>
+    <string name="address">Address where you lost or found item</string>
+    <string name="dateString">Date formate : mm/dd/yyyy</string>
+    <string name="descString">Description (color,size,number,details)</string>
+    <string name="addSubmitBtn">SUBMIT YOUR REQUEST</string>
+
+    <string name="searchText">Find any lost and found item in here</string>
+    <string name="search">Search Here</string>
+    <string name="selectacat">Select Any one Category From Below</string>
+    <string-array name="category_list">
+        <item>People</item>
+        <item>NID</item>
+        <item>Passport</item>
+        <item>Driving License</item>
+        <item>Documents</item>
+        <item> Money Bag</item>
+        <item>Bag</item>
+        <item>Pet</item>
+        <item>Mobile</item>
+        <item>Key</item>
+        <item>Money</item>
+        <item>Electronics</item>
+        <item>Other</item>
+    </string-array>
+
+
+</resources>
+

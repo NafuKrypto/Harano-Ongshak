@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <group android:checkableBehavior='single'>
+
+        <item
+            android:id="@+id/all_item"
+            android:title="@string/home"
+            android:icon="@drawable/ic_home_black_24dp"/>
+        <!--<item
+            android:id="@+id/lost"
+            android:title="Lost Items"
+            android:icon="@drawable/lost"/>
+
+        <item
+            android:id="@+id/found"
+            android:title="found Items"
+            android:icon="@drawable/found"/>
+        <item
+            android:id="@+id/addLostItem"
+            android:title="Add Lost Item"
+            android:icon="@drawable/add"/>
+        <item
+            android:id="@+id/addFoundItem"
+            android:title="Add Found Item"
+            android:icon="@drawable/add"/>-->
+
+        <item
+            android:id="@+id/search_item"
+            android:title="Search"
+            android:icon="@drawable/ic_search_black_24dp"/>
+        <item
+            android:id="@+id/contact"
+            android:title="Contact Us"
+            android:icon="@drawable/ic_local_phone_black_24dp"/>
+        <item
+            android:id="@+id/termsMenu"
+            android:title="Terms and Privacy Policy"
+            android:icon="@drawable/ic_description_black_24dp"/>
+    </group>
+
+    <item android:title="Profile">
+     <menu>
+    <group android:checkableBehavior='single'>
+        <item
+            android:id="@+id/profile"
+            android:title="Profile"
+            android:icon="@drawable/ic_account_circle_black_24dp"/>
+        <item
+            android:id="@+id/signup"
+            android:title="Sign Up"
+            android:icon="@drawable/signup"/>
+
+        <item
+            android:id="@+id/login"
+            android:title="Log In"
+            android:icon="@drawable/login"/>
+        <item
+            android:id="@+id/language"
+            android:title="Language"
+            android:icon="@drawable/ic_language_black_24dp"/>
+
+
+
+
+
+
+
+    </group>
+     </menu>
+    </item>
+
+
+
+</menu>

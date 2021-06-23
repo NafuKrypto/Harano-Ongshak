@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="home">হোম</string>
+    <string name="backtohome">হহোমপেজে ফিরে যান</string>
+    <string name="lostItem">হারানো বস্তু</string>
+    <string name="foundItem">পাওয়া  বস্তু</string>
+    <string name="addLostItem">হারানো বস্তু যুক্ত করুন</string>
+    <string name="addFoundItem">পাওয়া বস্তু যুক্ত করুন </string>
+    <string name="QRcode">কিউআর কোডের জন্য আবেদন করুন</string>
+    <string name="searchText">এখানে কোনও হারিয়ে যাওয়া এবং পাওয়া আইটেম সন্ধান করুন</string>
+
+    <string name="formTitle">ফর্মটি পূরণ করুন</string>
+    <string name="whatisit">এটা কি </string>
+    <string name="address">আপনি যেখানে আইটেমটি হারিয়েছেন বা খুঁজে পেয়েছেন সেই ঠিকানা</string>
+    <string name="dateString">তারিখ ফরমেট: মাস / তারিখ / বছর</string>
+    <string name="descString">বর্ণনা (রঙ, আকার, সংখ্যা, বিশদ)</string>
+    <string name="addSubmitBtn">আপনার অনুরোধ জমা দিন</string>
+
+    <string name="search">এখানে অনুসন্ধান করুন</string>
+
+    <string name="selectacat">যে কোনও একটি ক্যাটাগরি সিলেক্ট করুন </string>
+</resources>
