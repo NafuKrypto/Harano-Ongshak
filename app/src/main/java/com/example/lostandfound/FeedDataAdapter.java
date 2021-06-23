@@ -19,34 +19,38 @@ import androidx.recyclerview.widget.RecyclerView;
 public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHolder> implements Filterable {
     private List<FeedItemDataRetrieve> listData;
     private List<FeedItemDataRetrieve> listDataFiltered;
+    private String primaryKey;
     Context context;
-    private OnItemClicked onClick;
+    FeedItemDataRetrieve ld;
+    //private OnItemClicked onClick;
 
     public FeedDataAdapter(List<FeedItemDataRetrieve> listData) {
         this.listData = listData;
     }
 
-    public FeedDataAdapter(Context context ,List<FeedItemDataRetrieve> listData) {
+    public FeedDataAdapter(Context context ,List<FeedItemDataRetrieve> listData,String primaryKey) {
         this.listData = listData;
         this.context=context;
+        this.primaryKey=primaryKey;
     }
 
     //make interface like this
-    public interface OnItemClicked {
+   /* public interface OnItemClicked {
         void onItemClick(int position);
-    }
+    }*/
 
     public FeedDataAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_item_data_retreive,parent,false);
+
         return new FeedDataAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, final int position) {
-        FeedItemDataRetrieve ld=listData.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, final int position) {
+        ld=listData.get(position);
         holder.what_txt.setText(ld.getWhatItem());
         //Log.d( "My app","Get Data"+ld.getWhatItem() );
-        System.out.println(  );
+        //System.out.println(  );
         holder.address.setText(ld.getAddress());
         holder.desc.setText(ld.getDesc());
         holder.time.setText(ld.getTime());
@@ -55,8 +59,16 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
         holder.parentLayout.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent( context,TermsandConditionClass.class );
+                Intent intent =new Intent( context,DescriptiveView.class );
                 intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                intent.putExtra( "primaryKey", primaryKey);
+                intent.putExtra( "what",holder.what_txt.getText().toString() );
+                intent.putExtra( "address",holder.address.getText().toString() );
+                intent.putExtra( "desc",holder.desc.getText().toString() );
+                intent.putExtra( "time",holder.time.getText().toString());
+                intent.putExtra( "timestamp",ld.getTimestamp() );
+                intent.putExtra( "category1",holder.cat.getText().toString() );
+                intent.putExtra( "category2",ld.getCategory2() );
                 context.startActivity( intent );
             }
         } );
@@ -123,6 +135,8 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
             desc=(TextView)itemView.findViewById(R.id.desc);
             cat=(TextView)itemView.findViewById(R.id.category);
             parentLayout=(CardView)itemView.findViewById( R.id.cardviewItemDataREtrieve );
+
+
         }
     }
 }
