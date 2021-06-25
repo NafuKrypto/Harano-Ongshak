@@ -33,6 +33,7 @@ public class FeedDatabaseClass {
         mDatabase.child( primarykey).child( "address" ).setValue( address );
         mDatabase .child( primarykey).child( "time" ).setValue( time );
         mDatabase .child( primarykey).child( "desc" ).setValue( desc );
+        mDatabase .child( primarykey).child( "primaryKey" ).setValue( primarykey );
         mDatabase .child( primarykey).child( "category1" ).setValue( category1 );
         mDatabase .child( primarykey).child( "category2" ).setValue( category2 );
         mDatabase .child( primarykey).child( "timestamp" ).setValue( timestamp );

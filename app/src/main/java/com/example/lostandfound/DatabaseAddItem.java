@@ -32,6 +32,7 @@ public class DatabaseAddItem {
         mDatabase.child( "lostItem" ).child( primarykey).child( "address" ).setValue( address );
         mDatabase.child( "lostItem" ).child( primarykey).child( "time" ).setValue( time );
         mDatabase.child( "lostItem" ).child( primarykey).child( "desc" ).setValue( desc );
+        mDatabase.child( "lostItem" ).child( primarykey).child( "primaryKey" ).setValue( primarykey);
         mDatabase.child( "lostItem" ).child( primarykey).child( "category1" ).setValue( category1 );
         mDatabase.child( "lostItem" ).child( primarykey).child( "category2" ).setValue( category2 );
         mDatabase.child( "lostItem" ).child( primarykey).child( "timestamp" ).setValue( timestamp );
@@ -51,6 +52,7 @@ public class DatabaseAddItem {
         mDatabase.child( "foundItem" ).child( primarykey).child( "address" ).setValue( address );
         mDatabase.child( "foundItem" ).child( primarykey).child( "time" ).setValue( time );
         mDatabase.child( "foundItem" ).child( primarykey).child( "desc" ).setValue( desc );
+        mDatabase.child( "foundItem" ).child( primarykey).child( "primaryKey" ).setValue( primarykey );
         mDatabase.child( "foundItem" ).child( primarykey).child( "category1" ).setValue( category1 );
         mDatabase.child( "foundItem" ).child( primarykey).child( "category2" ).setValue( category2 );
         mDatabase.child( "foundItem" ).child( primarykey).child( "timestamp" ).setValue( timestamp );

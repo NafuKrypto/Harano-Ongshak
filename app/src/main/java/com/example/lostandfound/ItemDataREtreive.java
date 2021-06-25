@@ -2,17 +2,18 @@ package com.example.lostandfound;
 
 public class ItemDataREtreive  {
 
-    public String phone,address, category1,category2, desc, status, time, timestamp, whatItem;
+    public String phone,address, category1,category2, desc,primaryKey, status, time, timestamp, whatItem;
 
     public ItemDataREtreive() {
     }
 
-    public ItemDataREtreive(String phone, String address, String category1, String category2, String desc, String status, String time, String timestamp, String whatItem) {
+    public ItemDataREtreive(String phone, String address, String category1, String category2, String desc, String primaryKey, String status, String time, String timestamp, String whatItem) {
         this.phone = phone;
         this.address = address;
         this.category1 = category1;
         this.category2 = category2;
         this.desc = desc;
+        this.primaryKey=primaryKey;
         this.status = status;
         this.time = time;
         this.timestamp = timestamp;
@@ -55,6 +56,8 @@ public class ItemDataREtreive  {
         return desc;
     }
 
+    public String getPrimaryKey() { return primaryKey; }
+
     public void setDesc(String desc) {
         this.desc = desc;
     }
@@ -91,6 +94,7 @@ public class ItemDataREtreive  {
         this.whatItem = whatItem;
     }
 
+    public void setPrimaryKey(String primaryKey) { this.primaryKey = primaryKey; }
 
     /* String phone,primarykey,category1,category2,what,address,time,timestamp,desc,status;
 

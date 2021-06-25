@@ -28,22 +28,64 @@
     <string name="searchText">Find any lost and found item in here</string>
     <string name="search">Search Here</string>
     <string name="selectacat">Select Any one Category From Below</string>
+    <string name="uploadImage">Click to Select 1 to 3 images </string>
     <string-array name="category_list">
+        <item>Money</item>
         <item>People</item>
-        <item>NID</item>
+        <item>ID</item>
         <item>Passport</item>
         <item>Driving License</item>
         <item>Documents</item>
-        <item> Money Bag</item>
+        <item>Money Bag</item>
         <item>Bag</item>
         <item>Pet</item>
         <item>Mobile</item>
         <item>Key</item>
-        <item>Money</item>
         <item>Electronics</item>
         <item>Other</item>
     </string-array>
 
 
+    <string name="qrTitle">QR Form for every Indivdual</string>
+    <string name="qrSubtitle">Note:- QR code sticker only 10 taka, delivery charge 50tk, total 60 taka only, Sticker will be
+dilivered to your House address. Delivery Area now Dhaka city, Chittagong City and Feni town.</string>
+
+    <string name="catTitle">Category</string>
+    <string name="phone">Phone</string>
+    <string name="camera">Camera</string>
+    <string name="laptop">Laptop</string>
+    <string name="student_id">Student Id</string>
+    <string name="office_id">Office Id</string>
+    <string name="atm_card">Atm Card</string>
+    <string name="national_id">National Id</string>
+    <string name="money_bag">Moneybag</string>
+    <string name="pasport">Passport</string>
+    <string name="bag">Bag</string>
+    <string name="cheque_bag">Cheque Book</string>
+    <string name="house_door">House door</string>
+    <string name="key_ring">Key Ring</string>
+    <string name="book">Book</string>
+    <string name="dairy">Dairy</string>
+    <string name="document">Document File</string>
+    <string name="facebook">Facebook</string>
+    <string name="youtube">Youtube</string>
+    <string name="wifi">WiFi</string>
+    <string name="other">Other</string>
+
+    <string name="select_Area">Select Area :</string>
+    <string name="dhaka">Dhaka City</string>
+    <string name="ctg">Chittagong City</string>
+    <string name="feni">Feni City</string>
+
+    <string name="fillUpAllTheInfo">Fill Up The Form</string>
+    <string name="formName">Name</string>
+    <string name="address2">address</string>
+    <string name="email">email</string>
+    <string name="model">model</string>
+    <string name="office">office/ institution</string>
+    <string name="networkName">SSID/Network Name</string>
+    <string name="passwordNet">Network password</string>
+    <string name="networkType">Network type-WPA-WPA@-WEP</string>
+    <string name="url">URL</string>
 </resources>
 

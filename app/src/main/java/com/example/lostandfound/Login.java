@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -146,21 +145,26 @@ public class Login extends AppCompatActivity {
          * Checking if the user is logged in or not
          */
         super.onStart();
-        FirebaseUser user=mAuth.getCurrentUser();
+        SharedPreferences sharedpreferences = getApplicationContext().getSharedPreferences("MyPref", 0);
+        String phoneFromSharedPreference=sharedpreferences.getString( "userPhonenumberSaved",null );
+      /*  FirebaseUser user=mAuth.getCurrentUser();
 
         if(user!=null){
             sendtoNext(user);
-        }
+        }*/
+      if (phoneFromSharedPreference!=null){
+          sendtoNext(  );
+      }
     }
 
-    private void sendtoNext(FirebaseUser user) {
+    private void sendtoNext( ) {
 
         /**
          * if the user is logged in or not
          */
 
         Intent intent = new Intent(Login.this,MainActivity.class);
-        intent.putExtra( "user",user );
+        //intent.putExtra( "user",user );
         startActivity(intent);
         finish();
     }

@@ -62,7 +62,7 @@ public class FoundItem extends AppCompatActivity {
                             ItemDataREtreive l=npsnapshot.getValue(ItemDataREtreive.class);
                             listData.add(l);
                         }
-                        adapter=new DataAdapter(listData );
+                        adapter=new DataAdapter(getApplicationContext(),listData );
                         recyclerView.setAdapter(adapter);
 
                     }

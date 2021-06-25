@@ -3,6 +3,7 @@ package com.example.lostandfound;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import androidx.viewpager.widget.ViewPager;
 public class DescriptiveView extends AppCompatActivity {
     Toolbar toolbar;
     TextView textView;
+    TextView whatText,addressTitleTxt,detailsTitleText,category1Text,category2Text,addressTxt,dateTxt,detailsTxt;
     private List<FeedItemDataRetrieve> listDataFeed;
     private FeedDataAdapter adapterFeed;
     String what,desc,time,timestampString,primaryKey,category1,category2,address;
@@ -43,7 +45,18 @@ public class DescriptiveView extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled( true );
         getSupportActionBar().setDisplayShowTitleEnabled(false); // hide the current title from the Toolbar
 
-        textView=findViewById( R.id.text );
+        //textView=findViewById( R.id.text );
+        whatText=findViewById( R.id.whatTxt );
+        addressTitleTxt=findViewById( R.id.addressTitleTxt );
+        addressTxt=findViewById( R.id.addressTxt );
+        dateTxt=findViewById( R.id.dateTxt );
+        detailsTitleText=findViewById( R.id.detailsTitleTxt );
+        detailsTxt=findViewById( R.id.detailsTxt );
+        category1Text=findViewById( R.id.category1Txt );
+        category2Text=findViewById( R.id.category2Txt);
+
+
+
         Intent intentFromAdapter=getIntent();
         primaryKey= intentFromAdapter.getStringExtra("primaryKey");
         what=intentFromAdapter.getStringExtra("what");
@@ -62,18 +75,20 @@ public class DescriptiveView extends AppCompatActivity {
         //viewPager.setAdapter(adapter);
         retrieveOtherData( primaryKey );
         retrieveImageUrl( primaryKey );
-        textView.setText(what+" "+ primaryKey+" "+address+"  "+category1+" "+category2+" "
-        +desc+" "+timestampString+" "+time+" ");
 
-        /*
-        "address",ld.getAddress() );
-                intent.putExtra( "desc",ld.getDesc() );
-                intent.putExtra( "time",ld.getTime() );
-                intent.putExtra( "timestamp",ld.getTimestamp() );
-                intent.putExtra( "category1",ld.getCategory1() );
-                intent.putExtra( "category2",ld.getCategory2() );
-                */
+       /* textView.setText(what+" "+ primaryKey+" "+address+"  "+category1+" "+category2+" "
+        +desc+" "+timestampString+" "+time+" ");*/
 
+        whatText.setText( what );
+        addressTxt.setText( address );
+        Toast.makeText( getApplicationContext(),"category 2:"+cat2,Toast.LENGTH_LONG ).show();
+        category1Text.setText( category1 );
+        if (category2!=null){
+            category2Text.setText( category2 );
+            category2Text.setVisibility( View.VISIBLE );
+        }
+        dateTxt.setText( time );
+        detailsTxt.setText( desc );
 
     }
 
@@ -101,6 +116,7 @@ public class DescriptiveView extends AppCompatActivity {
                      adapter=new ViewPagerAdapter( getApplicationContext(),imageUrls);
                       if(adapter==null){
                           Toast.makeText( getApplicationContext(),"null",Toast.LENGTH_SHORT ).show();
+
                       }
                       try {
                           viewPager.setAdapter( adapter );
@@ -108,7 +124,7 @@ public class DescriptiveView extends AppCompatActivity {
                           Toast.makeText( getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT ).show();
                       }
                      //textView.setText( imageUrls[0]+" "+imageUrls[1]+" "+imageUrls[2] );
-                    textView.setText( String.valueOf( listImage ) );
+                    //textView.setText( String.valueOf( listImage ) );
                 }
             }
 
@@ -129,7 +145,7 @@ public class DescriptiveView extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
                    for (DataSnapshot dataSnapshot:snapshot.getChildren()){
-                        cat2=dataSnapshot.child( "category2" ).getValue().toString();
+                       // cat2=dataSnapshot.child( "category2" ).getValue().toString();
                         timeStamp=dataSnapshot.child( "timestamp" ).getValue().toString();
                         type=dataSnapshot.child( "type" ).getValue().toString();
                    }

@@ -88,33 +88,26 @@ int selectedId;
                   case 1:
                       createAlertDialougeFuncRealPhone();
 
-                      qrCodeDatabaseClass database=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
-                              s,s,s,s,s,s,s,s,s);
-                      database.writeToDatabase();
+                      //qrCodeDatabaseClass database=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
+                        //      s,s,s,s,s,s,s,s,s);
+                     // database.writeToDatabase();
                       break;
                   case 2:
                       createAlertDialougeFuncRealPhone();
-                      qrCodeDatabaseClass database1=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
-                              s,s,s,s,s,s,s,s,s);
-                      database1.writeToDatabase();
+
                       break;
+
                   case 3:
                       createAlertDialougeFuncRealPhone();
-                      qrCodeDatabaseClass database3=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
-                              s,s,s,s,s,s,s,s,s);
-                      database3.writeToDatabase();
+
                       break;
                   case 4:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database4=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database4.writeToDatabase();
+
                       break;
                   case 5:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database5=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database5.writeToDatabase();
+
                       break;
                   case 6:
                       createAlertDialougeFuncStudId();
@@ -125,87 +118,58 @@ int selectedId;
                       break;
                   case 7:
                       createAlertDialougeFuncStudId();
-                      qrCodeDatabaseClass database7=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
-                              s,s,s,s,s,name3S,email3S,office3S,phone3S,address3S,s,s,s,s);
-                      database7.writeToDatabase();
+
                       break;
                   case 8:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database8=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database8.writeToDatabase();
+
                       break;
                   case 9:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database9=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database9.writeToDatabase();
+
                       break;
                   case 10:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database10=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database10.writeToDatabase();
                       break;
                   case 11:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database11=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database11.writeToDatabase();
+
                       break;
                   case 12:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database12=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database12.writeToDatabase();
+
                       break;
                   case 13:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database13=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database13.writeToDatabase();
+
                       break;
                   case 14:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database14=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database14.writeToDatabase();
+
                       break;
                   case 15:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database15=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database15.writeToDatabase();
+
                       break;
                   case 16:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database16=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database16.writeToDatabase();
+
                       break;
                   case 17:
                       createAlertDialougeFuncUrl();
-                      qrCodeDatabaseClass database17=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
-                              s,s,s,s,s,s,s,s,s,s,s,s,s, Url );
-                      database17.writeToDatabase();
+
                       break;
                   case 18:
                       createAlertDialougeFuncUrl();
-                      qrCodeDatabaseClass database18=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
-                              s,s,s,s,s,s,s,s,s,s,s,s,s, Url );
-                      database18.writeToDatabase();
+
                       break;
                   case 19:
                       createAlertDialougeFuncWifi();
-                      qrCodeDatabaseClass database19=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
-                              s,s,s,s,s,s,s,s,s,s,networkName,NetworkType,networkPass, s );
-                      database19.writeToDatabase();
+
                       break;
                   case 20:
                       createAlertDialougeFuncPhone();
-                      qrCodeDatabaseClass database20=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
-                              area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                      database20.writeToDatabase();
+
                       break;
 
               }
@@ -256,6 +220,9 @@ int selectedId;
                 phonenumS=phoneNumber.getText().toString().trim();
                 addressS=address.getText().toString().trim();
                 emailS=email.getText().toString().trim();
+                qrCodeDatabaseClass database4=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
+                        area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
+                database4.writeToDatabase();
                // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -312,6 +279,9 @@ int selectedId;
                 phonenum2S=phoneNumber.getText().toString().trim();
                 address2S=address.getText().toString().trim();
                 email2S=email.getText().toString().trim();
+                qrCodeDatabaseClass database=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
+                        s,s,s,s,s,s,s,s,s);
+                database.writeToDatabase();
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -368,6 +338,10 @@ int selectedId;
                 phone3S=phoneNumber.getText().toString().trim();
                 address3S=address.getText().toString().trim();
                 email3S=email.getText().toString().trim();
+
+                qrCodeDatabaseClass database7=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
+                        s,s,s,s,s,name3S,email3S,office3S,phone3S,address3S,s,s,s,s);
+                database7.writeToDatabase();
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -418,7 +392,9 @@ int selectedId;
                networkName=network_name.getText().toString().trim();
                 NetworkType=networkType.getText().toString().trim();
                 networkPass=password.getText().toString().trim();
-
+                qrCodeDatabaseClass database19=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
+                        s,s,s,s,s,s,s,s,s,s,networkName,NetworkType,networkPass, s );
+                database19.writeToDatabase();
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -463,7 +439,9 @@ int selectedId;
                 dialogInterface.dismiss();
                 Url=url.getText().toString().trim();
 
-
+                qrCodeDatabaseClass database17=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
+                        s,s,s,s,s,s,s,s,s,s,s,s,s, Url );
+                database17.writeToDatabase();
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }

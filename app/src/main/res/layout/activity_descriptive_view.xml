@@ -1,9 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DescriptiveView">
+    android:orientation="vertical"
+    tools:context=".DescriptiveView"
+    android:padding="20dp"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <include layout="@layout/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        >
+    </androidx.viewpager.widget.ViewPager>
+
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+
+           >
+           <LinearLayout
+               android:layout_width="200dp"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_marginTop="20dp"
+               android:layout_gravity="right">
+            <TextView
+                android:id="@+id/category2Txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".01"
+                android:text="category2"
+                android:background="@color/lightBlue"
+                android:textColor="@color/colorBrand3"
+                android:layout_gravity="right"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/baloo"
+                android:gravity="center"
+                android:visibility="invisible"
+                />
+           <TextView
+               android:id="@+id/category1Txt"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight=".01"
+               android:text="category1"
+               android:background="@color/lightBlue"
+               android:textColor="@color/colorBrand3"
+               android:layout_marginRight="5dp"
+               android:layout_gravity="right"
+               android:fontFamily="@font/baloo"
+               android:gravity="center"
+               />
+           </LinearLayout>
+        <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+
+            >
+
+            <TextView
+                android:id="@+id/whatTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:layout_marginTop="10dp"
+                android:layout_weight=".07"
+                android:fontFamily="sans-serif-black"
+                android:text="What Item is this Item I want to know"
+                android:textColor="@color/colorBrand3"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dateTxt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginLeft="20dp"
+                android:layout_weight=".02"
+                android:fontFamily="sans-serif-condensed"
+                android:text="3/29/10"
+                android:textColor="@color/ash"
+                android:textSize="20sp" />
+        </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               >
+
+               <TextView
+                   android:id="@+id/addressTitleTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="left"
+                   android:layout_weight=".06"
+                   android:fontFamily="@font/anonymous_pro"
+                   android:text="Address"
+                   android:textColor="@color/ash"
+                   android:textSize="20sp"
+                   android:textStyle="bold" />
+               <TextView
+                   android:id="@+id/addressTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="Bashundhara R/A ,Dhaka - 1229  dfdjhfj dfhdjfhjdfhj jdfhdjhf"
+                   android:textColor="@color/colorBrand3"
+                   android:layout_gravity="left"
+                   android:fontFamily="@font/baloo"
+                   android:textSize="15sp"
+                   />
+           </LinearLayout>
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginTop="10dp">
+
+               <TextView
+                   android:id="@+id/detailsTitleTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="left"
+                   android:fontFamily="@font/anonymous_pro"
+                   android:text="Details"
+                   android:textColor="@color/ash"
+                   android:textSize="20sp"
+                   android:textStyle="bold" />
+               <TextView
+                   android:id="@+id/detailsTxt"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:text="My thing is stolen uuofjenfobfejnjebbejvbeubebvevuebkjeubevkjevekjvnbkjenvibevkjejvbekveubvev ieubvand i am pissed of af "
+                   android:textColor="@color/colorBrand3"
+                   android:layout_gravity="left"
+                   android:fontFamily="@font/baloo"
+                   android:textSize="15sp"
+                   />
+
+           </LinearLayout>
+       </LinearLayout>
+
+
+    </LinearLayout>
+
+</ScrollView>

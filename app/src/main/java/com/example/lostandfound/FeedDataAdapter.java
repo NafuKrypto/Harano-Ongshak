@@ -22,16 +22,17 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
     private String primaryKey;
     Context context;
     FeedItemDataRetrieve ld;
+    String cat2;
     //private OnItemClicked onClick;
 
     public FeedDataAdapter(List<FeedItemDataRetrieve> listData) {
         this.listData = listData;
     }
 
-    public FeedDataAdapter(Context context ,List<FeedItemDataRetrieve> listData,String primaryKey) {
+    public FeedDataAdapter(Context context ,List<FeedItemDataRetrieve> listData ) {
         this.listData = listData;
         this.context=context;
-        this.primaryKey=primaryKey;
+
     }
 
     //make interface like this
@@ -56,19 +57,23 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
         holder.time.setText(ld.getTime());
         holder.cat.setText( ld.getCategory1());
         // holder.what_txt.setText(ld.getPhone());
+        holder.primaryKey.setText( ld.getPrimaryKey() );
+        holder.cat2.setText( ld.getCategory2() );
+
+
         holder.parentLayout.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent =new Intent( context,DescriptiveView.class );
                 intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
-                intent.putExtra( "primaryKey", primaryKey);
+                intent.putExtra( "primaryKey", holder.primaryKey.getText().toString());
                 intent.putExtra( "what",holder.what_txt.getText().toString() );
                 intent.putExtra( "address",holder.address.getText().toString() );
                 intent.putExtra( "desc",holder.desc.getText().toString() );
                 intent.putExtra( "time",holder.time.getText().toString());
                 intent.putExtra( "timestamp",ld.getTimestamp() );
                 intent.putExtra( "category1",holder.cat.getText().toString() );
-                intent.putExtra( "category2",ld.getCategory2() );
+                intent.putExtra( "category2",holder.cat2.getText().toString());
                 context.startActivity( intent );
             }
         } );
@@ -124,7 +129,7 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView what_txt,address,time,desc,cat;
+        private TextView what_txt,address,time,desc,cat,primaryKey,cat2;
         private CardView parentLayout;
         public ViewHolder(View itemView) {
             super(itemView);
@@ -134,6 +139,8 @@ public class FeedDataAdapter extends RecyclerView.Adapter<FeedDataAdapter.ViewHo
             time=(TextView)itemView.findViewById(R.id.time);
             desc=(TextView)itemView.findViewById(R.id.desc);
             cat=(TextView)itemView.findViewById(R.id.category);
+            primaryKey=(TextView)itemView.findViewById( R.id.primarykey );
+            cat2=(TextView)itemView.findViewById( R.id.category2);
             parentLayout=(CardView)itemView.findViewById( R.id.cardviewItemDataREtrieve );
 
 

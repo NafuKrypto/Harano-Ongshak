@@ -47,6 +47,7 @@ public class LostItem extends AppCompatActivity {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setReverseLayout( true );
         linearLayoutManager.setStackFromEnd(true);
+        recyclerView.setLayoutManager(linearLayoutManager);
         listData=new ArrayList<>();
         final DatabaseReference nm= FirebaseDatabase.getInstance().getReference("lostItem");
         latestquery=nm.orderByChild( "timestamp" );
@@ -56,9 +57,10 @@ public class LostItem extends AppCompatActivity {
                 if (dataSnapshot.exists()){
                     for (DataSnapshot npsnapshot : dataSnapshot.getChildren()){
                         ItemDataREtreive l=npsnapshot.getValue(ItemDataREtreive.class);
+
                         listData.add(l);
                     }
-                    adapter=new DataAdapter(listData );
+                    adapter=new DataAdapter(getApplicationContext(),listData );
                     recyclerView.setAdapter(adapter);
 
                 }

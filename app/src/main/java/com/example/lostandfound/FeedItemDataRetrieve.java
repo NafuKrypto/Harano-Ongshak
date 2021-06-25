@@ -1,18 +1,19 @@
 package com.example.lostandfound;
 
 public class FeedItemDataRetrieve {
-    public String phone,address, category1,category2, desc, status, time, timestamp,type, whatItem;
+    public String phone,address, category1,category2, desc, primaryKey,status, time, timestamp,type, whatItem;
 
     public FeedItemDataRetrieve( ) {
 
     }
 
-    public FeedItemDataRetrieve(String phone, String address, String category1, String category2, String desc, String status, String time, String timestamp, String type, String whatItem) {
+    public FeedItemDataRetrieve(String phone, String address, String category1, String category2, String desc,String primaryKey, String status, String time, String timestamp, String type, String whatItem) {
         this.phone = phone;
         this.address = address;
         this.category1 = category1;
         this.category2 = category2;
         this.desc = desc;
+        this.primaryKey=primaryKey;
         this.status = status;
         this.time = time;
         this.timestamp = timestamp;
@@ -39,6 +40,8 @@ public class FeedItemDataRetrieve {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
+    public void setPrimaryKey(String primaryKey) { this.primaryKey = primaryKey; }
 
     public void setStatus(String status) {
         this.status = status;
@@ -79,6 +82,8 @@ public class FeedItemDataRetrieve {
     public String getDesc() {
         return desc;
     }
+
+    public String getPrimaryKey() {return primaryKey; }
 
     public String getStatus() {
         return status;

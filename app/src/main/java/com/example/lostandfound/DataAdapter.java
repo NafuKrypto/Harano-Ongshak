@@ -1,5 +1,7 @@
 package com.example.lostandfound;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,11 +20,19 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     private List<ItemDataREtreive> listDataFiltered;
     private DataAdapterListener listener;
     private List<FeedItemDataRetrieve> feedlistData;
+    ItemDataREtreive ld;
+    Context context;
     /*public DataAdapter(List<ItemDataREtreive> listData ) {
         this.listData = listData;
 
     }*/
     public DataAdapter(List<ItemDataREtreive> listData  ) {
+        this.listData = listData;
+
+    }
+
+    public DataAdapter(Context context,List<ItemDataREtreive> listData  ) {
+        this.context=context;
         this.listData = listData;
 
     }
@@ -41,16 +51,32 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     //Context context;
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        ItemDataREtreive ld=listData.get(position);
+    public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        ld=listData.get(position);
         holder.what_txt.setText(ld.getWhatItem());
-
         holder.address.setText(ld.getAddress());
         holder.desc.setText(ld.getDesc());
         holder.time.setText(ld.getTime());
         holder.cat.setText( ld.getCategory1());
+        holder.primaryKey.setText( ld.getPrimaryKey() );
+        holder.cat2.setText( ld.getCategory2() );
        // holder.what_txt.setText(ld.getPhone());
-
+        holder.parentLayout.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent( context,DescriptiveView.class );
+                intent.addFlags( Intent.FLAG_ACTIVITY_NEW_TASK );
+                intent.putExtra( "primaryKey", holder.primaryKey.getText().toString());
+                intent.putExtra( "what",holder.what_txt.getText().toString() );
+                intent.putExtra( "address",holder.address.getText().toString() );
+                intent.putExtra( "desc",holder.desc.getText().toString() );
+                intent.putExtra( "time",holder.time.getText().toString());
+                intent.putExtra( "timestamp",ld.getTimestamp() );
+                intent.putExtra( "category1",holder.cat.getText().toString() );
+                intent.putExtra( "category2",holder.cat2.getText().toString());
+                context.startActivity( intent );
+            }
+        } );
     }
 
     @Override
@@ -59,8 +85,8 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
-        private TextView what_txt,address,time,desc,cat;
-        private CardView cardView;
+        private TextView what_txt,address,time,desc,cat,primaryKey,cat2;
+        private CardView parentLayout;
         public ViewHolder(View itemView) {
             super(itemView);
             what_txt=(TextView)itemView.findViewById(R.id.what_id);
@@ -69,7 +95,10 @@ public class DataAdapter extends RecyclerView.Adapter<DataAdapter.ViewHolder> im
             time=(TextView)itemView.findViewById(R.id.time);
             desc=(TextView)itemView.findViewById(R.id.desc);
             cat=(TextView)itemView.findViewById(R.id.category);
-            cardView=(CardView)itemView.findViewById( R.id. cardviewItemDataREtrieve);
+            primaryKey=(TextView)itemView.findViewById( R.id.primarykey );
+            cat2=(TextView)itemView.findViewById( R.id.category2);
+            parentLayout=(CardView)itemView.findViewById( R.id.cardviewItemDataREtrieve );
+
         }
     }
 

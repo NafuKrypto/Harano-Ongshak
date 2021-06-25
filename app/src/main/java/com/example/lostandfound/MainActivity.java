@@ -60,6 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static String lang=null;
     SharedPreferences sharedPreferences2 ;
     SharedPreferences.Editor editor2;
+    private String keY="";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -249,6 +250,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         qrcodeCard.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent6 = new Intent( MainActivity.this,QRCodeForm.class );
+                startActivity( intent6 );
                 Toast.makeText( MainActivity.this,"QR Code",Toast.LENGTH_SHORT ).show();
             }
         } );
@@ -451,46 +454,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
 
                 break;
-            /*case R.id.addLostItem:
-                Toast.makeText( this,"Phone from addLostItem: "+Phone,Toast.LENGTH_LONG ).show();
-               if(Phone!=null) {
-                   Intent intent4 = new Intent( this, AddItem.class );
-                   intent4.putExtra( "item_type", "Lost" );
-                   intent4.putExtra( "phone", Phone );
-                   startActivity( intent4 );
-                   finish();
-               }else if(Phone==null){
-                   Intent intent5 = new Intent( this, Login.class );
-                   startActivity( intent5 );
-                   finish();
-               }
-                break;
-            case R.id.addFoundItem:
-                if(Phone!=null) {
-                    Intent intent6 = new Intent( this, AddItem.class );
-                    intent6.putExtra( "item_type", "Found" );
-                    intent6.putExtra( "phone", Phone );
-                    startActivity( intent6 );
-                    finish();
-                }else if(Phone==null){
-                    Intent intent5 = new Intent( this, Login.class );
-                    startActivity( intent5 );
-                    finish();
-                }
-                break;*/
 
             case R.id.search_item:
                 Intent searchIntent = new Intent(MainActivity.this,Search.class);
                 startActivity( searchIntent );
                 break;
-            /*case R.id.contact:
-                break;
-            case R.id.terms:
-                break;
+
             case R.id.profile:
+                Intent intentProfile=new Intent( MainActivity.this,Profile.class );
+                startActivity( intentProfile );
                 break;
-            case R.id.language:
-                break;*/
+
             case R.id.termsMenu:
                Intent intentTerms=new Intent( MainActivity.this,TermsandConditionClass.class );
                startActivity( intentTerms );
@@ -612,11 +586,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         listDataFeed=new ArrayList<>();
         final DatabaseReference nm= FirebaseDatabase.getInstance().getReference("feed");
         latestquery=nm.orderByChild( "timestamp" );
+
         latestquery.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()){
                     for (DataSnapshot npsnapshot : dataSnapshot.getChildren()){
+                           keY=npsnapshot.getKey();
                         FeedItemDataRetrieve l=npsnapshot.getValue(FeedItemDataRetrieve.class);
                         //Toast.makeText(MainActivity.this,l.getCategory1(), Toast.LENGTH_LONG).show();
                         listDataFeed.add(l);

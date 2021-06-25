@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,26 +15,38 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class AddItem extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-private TextView warning,tittle,selectCategorytxt;
-LinearLayout id;
+private TextView warning,tittle,selectCategorytxt , imgtxt;
+private ImageButton uploadImage;
+LinearLayout id,idTypes;
 CheckBox men,women,kid,old;
 EditText what,address,time,desc;
 String what_str,address_str,time_str,desc_str, user_phone,timestamp,primaryKey;
@@ -41,8 +55,18 @@ final Calendar myCalendar = Calendar.getInstance();
 DatePickerDialog.OnDateSetListener date;
 FirebaseAuth mAuth;
 SharedPreferences sharedPreferences2 ;
+private ActivityResultLauncher<Intent> imageACtivityResultLauncher;
+ArrayList<Uri> imageList = new ArrayList<Uri>(  );
+int uploadCount=0;
+StorageReference imageFolder;
+private int countImgData;
+private Uri imageUri;
 
-Button btn;
+    Button btn;
+
+    public AddItem() {
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -53,12 +77,15 @@ Button btn;
         tittle=findViewById( R.id.tittle );
         warning=findViewById(R.id.warning);
         id=findViewById( R.id.Checkbox );
+        idTypes=findViewById( R.id.CheckboxIDType );
         what=findViewById( R.id.what );
         address=findViewById( R.id.address );
         time=findViewById( R.id.time );
         desc=findViewById( R.id.desc );
         btn=findViewById( R.id.submitbtn );
         selectCategorytxt=findViewById( R.id.selectone );
+        imgtxt=findViewById( R.id.imgTxt );
+        uploadImage=findViewById( R.id.chooseImg );
         Spinner spinner = (Spinner) findViewById(R.id.category);
         /**
          * sharedpreference for language
@@ -101,16 +128,79 @@ Button btn;
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
             }
         } );
+/**
+ * Upload Image Function
+ */
+     uploadImage.setOnClickListener( new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+
+             Intent intentImg= new Intent( Intent.ACTION_GET_CONTENT );
+             intentImg.setType( "image/*" );
+             intentImg.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+             //startActivityForResult( intentImg,1);
+
+              imageACtivityResultLauncher =registerForActivityResult(
+                     new ActivityResultContracts.StartActivityForResult(),
+                     new ActivityResultCallback<ActivityResult>() {
+
+                         @Override
+                         public void onActivityResult(ActivityResult result) {
+                             if (result.getResultCode()==RESULT_OK){
+                                 if (result.getData().getClipData()!=null){
+                                      countImgData= result.getData().getClipData().getItemCount();
+                                     if (countImgData >3){
+                                         imgtxt.setText( "The pictures cannot be more than 3" );
+                                         imgtxt.setTextColor( Color.RED );
+                                     }else if(countImgData<=3) {
 
 
+                                         int currentImgSelect = 0;
+                                         Toast.makeText( getApplicationContext(), "Imagefuncbtn", Toast.LENGTH_LONG ).show();
+                                         while (currentImgSelect < countImgData) {
+                                             imageUri = result.getData().getClipData().getItemAt( currentImgSelect ).getUri();
+                                             imageList.add( imageUri );
+                                             currentImgSelect = currentImgSelect + 1;
+                                         }
+                                         imgtxt.setText( "You have selected " + imageList.size() + " image" );
+                                         imgtxt.setTextColor( Color.GREEN );
+                                     }
+                                 }
+                                // Intent imgData = result.getData();
+                                // Toast.makeText( getApplicationContext(),""+imgData,Toast.LENGTH_LONG).show();
+                                 //openSomeActivityForResult();
+                             }
+                         }
+                     }
+             );
+
+                  imageACtivityResultLauncher.launch( intentImg );
+              /*else if(countImgData>3){
+                  imgtxt.setText( "You cannot put picture more than 3" );
+                  imgtxt.setTextColor( Color.RED );
+              }*/
+         }
+
+     } );
+
+        /**
+         * Submit Button Function
+         */
      btn.setOnClickListener( new View.OnClickListener() {
          @Override
          public void onClick(View view) {
+
+             if (countImgData>3){
+                 imgtxt.setText( "The system cannot take more than 3 pictures" );
+                 imgtxt.setTextColor( Color.RED );
+             }else if(countImgData<=3){
+
+
              what_str= what.getText().toString().trim();
              address_str=address.getText().toString().trim();
              time_str=time.getText().toString().trim();
              desc_str=desc.getText().toString().trim();
-             String itemtype=getIntent().getStringExtra( "item_type" );
+             final String itemtype=getIntent().getStringExtra( "item_type" );
              Toast.makeText( AddItem.this,"Lost : "+(itemtype=="Lost"),Toast.LENGTH_SHORT ).show();
         /*Toast.makeText( AddItem.this,"what :"+what_str,Toast.LENGTH_SHORT ).show();
         Toast.makeText( AddItem.this,"addr :"+address_str,Toast.LENGTH_SHORT ).show();
@@ -133,6 +223,30 @@ Button btn;
             // primaryKey=primaryKey.replaceAll( ".","");
              //primaryKey=primaryKey.replaceAll( " ","");
              Toast.makeText( AddItem.this,"primary key :"+primaryKey,Toast.LENGTH_SHORT ).show();
+
+
+                 /**
+                  * image ulr generate
+                  */
+
+             imageFolder = FirebaseStorage.getInstance().getReference().child( "image" );
+             for (uploadCount=0;uploadCount<imageList.size();uploadCount++){
+                 Uri individualImage = imageList.get( uploadCount );
+                 final StorageReference imageName=imageFolder.child( "image"+individualImage.getLastPathSegment() );
+                 imageName.putFile( individualImage ).addOnSuccessListener( new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                     @Override
+                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                         imageName.getDownloadUrl().addOnSuccessListener( new OnSuccessListener<Uri>() {
+                             @Override
+                             public void onSuccess(Uri uri) {
+                                 String url = String.valueOf( uri );
+                                 funcStoreLink(url,itemtype,primaryKey);
+                             }
+                         } );
+                     }
+                 } );
+             }
+
              if(itemtype.equals("Lost")) {
 /**
  * Entering Data into lostItem and into Feed child with status 0
@@ -171,8 +285,28 @@ Button btn;
              intent.putExtra( "phone",user_phone );
              startActivity( intent );
              finish();
+             ///
+             }
          }
      } );
+    }
+
+    private void funcStoreLink(String url,String typeItem,String keyPrimary) {
+        /**
+         * For image uploading Storing Link
+         */
+
+        DatabaseReference databaseReferenceForImage = FirebaseDatabase.getInstance().getReference().child( "postImage" );
+        HashMap<String, String> hashMap= new HashMap<>(  );
+        hashMap.put( "imageLink",url );
+
+        databaseReferenceForImage.child( keyPrimary ).push().setValue( hashMap );
+        imageList.clear();
+    }
+
+    public void openSomeActivityForResult(){
+        Intent intentImagePass = new Intent( getApplicationContext(),DescriptiveView.class );
+        imageACtivityResultLauncher.launch( intentImagePass );
     }
 
     private void languageChangeProg(String language) {
@@ -195,6 +329,7 @@ Button btn;
                 desc.setHint( resources.getString( R.string.descString ) );
                 btn.setText( resources.getString( R.string.addSubmitBtn ) );
                 selectCategorytxt.setText( resources.getString( R.string.selectacat ) );
+                imgtxt.setText( resources.getString( R.string.uploadImage ) );
                 //Menu home= findViewById( R.id.all_item );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
                 //menu.findItem( R.id.all_item ).setTitle( "lALA");
@@ -214,6 +349,7 @@ Button btn;
                 desc.setHint( resources.getString( R.string.descString ) );
                 btn.setText( resources.getString( R.string.addSubmitBtn ) );
                 selectCategorytxt.setText( resources.getString( R.string.selectacat ) );
+                imgtxt.setText( resources.getString( R.string.uploadImage ) );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
                 //menu.findItem( R.id.all_item ).setTitle( "lALA");
                 // Toast.makeText( MainActivity.this,resources.getString( R.string.home ),Toast.LENGTH_SHORT ).show();
@@ -236,6 +372,7 @@ Button btn;
                 desc.setHint( resources.getString( R.string.descString ) );
                 btn.setText( resources.getString( R.string.addSubmitBtn ) );
                 selectCategorytxt.setText( resources.getString( R.string.selectacat ) );
+                imgtxt.setText( resources.getString( R.string.uploadImage ) );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
                 Toast.makeText( AddItem.this,resources.getString( R.string.whatisit ),Toast.LENGTH_SHORT ).show();
             }catch (Exception e){
@@ -255,6 +392,12 @@ Button btn;
         }
         if(i!=1){
             id.setVisibility(View.GONE);
+        }
+        if (i==2){
+            idTypes.setVisibility( View.VISIBLE );
+        }
+        if(i!=2){
+            idTypes.setVisibility( View.GONE );
         }
         Toast.makeText(AddItem.this,Category,Toast.LENGTH_LONG).show();
 
@@ -300,9 +443,34 @@ Button btn;
                 if (checked){
                     checkboxitem="old";
                 }
-
-            else checkboxitem="None";
-
+                else checkboxitem="None";
+                break;
+            case R.id.nid:
+                if (checked){
+                    checkboxitem="NID";
+                }
+                else checkboxitem="None";
+                break;
+            case R.id.studentId:
+                if (checked){
+                    checkboxitem="studentid";
+                }
+                else checkboxitem="None";
+                break;
+            case R.id.officeId:
+                if (checked){
+                    checkboxitem="officeid";
+                }
+                else checkboxitem="None";
+                break;
+            case R.id.othersId:
+                if (checked){
+                    checkboxitem="othersId";
+                }
+                else checkboxitem="None";
+                break;
+            default:
+                checkboxitem="None";
                 break;
             // TODO: Checked Items of People
         }

@@ -20,4 +20,47 @@
     <string name="search">এখানে অনুসন্ধান করুন</string>
 
     <string name="selectacat">যে কোনও একটি ক্যাটাগরি সিলেক্ট করুন </string>
+    <string name="uploadImage">Select 1 to 3 images</string>
+    <string name="qrTitle">প্রতিটি ব্যক্তির জন্য কিউআর ফর্ম</string>
+    <string name="qrSubtitle">দ্রষ্টব্য: - কিউআর কোড স্টিকার মাত্র 10 টাকা, ডেলিভারি চার্জ 50 টাকা, মোট 60 টাকা কেবল, স্টিকার হবে
+আপনার বাড়ির ঠিকানায় পৌঁছে দেওয়া। বিতরণ অঞ্চল এখন ঢাকা শহর, চট্টগ্রাম শহর এবং ফেনী শহর।</string>
+
+
+    <string name="catTitle">Category</string>
+    <string name="phone">Phone</string>
+    <string name="camera">Camera</string>
+    <string name="laptop">Laptop</string>
+    <string name="student_id">Student Id</string>
+    <string name="office_id">Office Id</string>
+    <string name="atm_card">Atm Card</string>
+    <string name="national_id">National Id</string>
+    <string name="money_bag">Moneybag</string>
+    <string name="pasport">Passport</string>
+    <string name="bag">Bag</string>
+    <string name="cheque_bag">Cheque Book</string>
+    <string name="house_door">House door</string>
+    <string name="key_ring">Key Ring</string>
+    <string name="book">Book</string>
+    <string name="dairy">Dairy</string>
+    <string name="document">Document File</string>
+    <string name="facebook">Facebook</string>
+    <string name="youtube">Youtube</string>
+    <string name="wifi">WiFi</string>
+    <string name="other">Other</string>
+
+    <string name="select_Area">Select Area</string>
+    <string name="dhaka">ঢাকা</string>
+    <string name="ctg">Chittagong City</string>
+    <string name="feni">Feni City</string>
+
+    <string name="fillUpAllTheInfo">ফর্মটি পূরণ করুন</string>
+    <string name="formName">Name</string>
+    <string name="address2">address</string>
+    <string name="email">email</string>
+    <string name="model">model</string>
+    <string name="office">office/ institution</string>
+    <string name="networkName">SSID/Network Name</string>
+    <string name="passwordNet">Network password</string>
+    <string name="networkType">Network type-WPA-WPA@-WEP</string>
+    <string name="url">URL</string>
 </resources>
