@@ -9,8 +9,10 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
+
     Menu menu;
     TextView textView,losstText,foundText,addLostText,addFoundText,qrcodeText;
     FirebaseUser user1;
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SharedPreferences sharedPreferences2 ;
     SharedPreferences.Editor editor2;
     private String keY="";
+    String languageFromSharedPRef;
+    boolean shouldChangeMenuLabels;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -79,9 +84,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         addLostText=findViewById( R.id.addLostTextview);
         addFoundText=findViewById( R.id.addFoundTextview);
         qrcodeText=findViewById( R.id.qrCodeTextview );
+        Button refreshBtn=findViewById( R.id.refreshBtn );
 
         try {
-            String languageFromSharedPRef = sharedPreferences2.getString( "userLanguageChoice", null );
+              languageFromSharedPRef = sharedPreferences2.getString( "userLanguageChoice", null );
             Toast.makeText( getApplicationContext(), languageFromSharedPRef,Toast.LENGTH_LONG ).show();
             if (languageFromSharedPRef == null) {
                 Toast.makeText( MainActivity.this, "language from sharedpref is null ", Toast.LENGTH_SHORT ).show();
@@ -257,9 +263,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } );
 
        // invalidateOptionsMenu();
+
+        refreshBtn.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                feedItemAllDisplay();
+            }
+        } );
     }
 
-    private void  changeLanguage() {
+    private  void  changeLanguage() {
 
         /**
          * Language Change from Alert Dialogue
@@ -271,18 +284,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
         alertDialog.setTitle("Set a language");
         String[] items = {"Bengal","English"};
-        int checkedItem=1;
-        alertDialog.setSingleChoiceItems(items, checkedItem, new DialogInterface.OnClickListener() {
+        final int[] checkedItem = {1};
+        if(languageFromSharedPRef.equals( "Bengal" )){
+            checkedItem[0]=0;
+        }
+
+
+        alertDialog.setSingleChoiceItems(items, checkedItem[0], new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 switch (which) {
                     case 0:
                          lang="Bengal";
+                         checkedItem[0] =0;
                        // editor2.putString( "userLanguageChoice",lang );
                        // editor2.apply();
                         break;
                     case 1:
                         lang="English";
+                        checkedItem[0]=1;
                        // editor2.putString( "userLanguageChoice",lang );
                        // editor2.apply();
                         break;
@@ -297,8 +317,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     editor2.putString( "userLanguageChoice", lang );
                     editor2.apply();
                     languageChangeProg( sharedPreferences2.getString( "userLanguageChoice", null ) );
+                    shouldChangeMenuLabels=true;
                 }catch (Exception e){
-                  Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_LONG ).show();
+                 // Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_LONG ).show();
             }finally {
 
                 }
@@ -315,13 +336,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         /**
          * the language var is passed from shared preference
          */
-        Toast.makeText( MainActivity.this,"languageChangeProg  "+language,Toast.LENGTH_SHORT ).show();
+       // Toast.makeText( MainActivity.this,"languageChangeProg  "+language,Toast.LENGTH_SHORT ).show();
         Context context ;
         Resources resources;
         if (language!=null && language.equalsIgnoreCase( "English"  ) ){
 
             try {
-                Toast.makeText( MainActivity.this,language,Toast.LENGTH_SHORT ).show();
+               // Toast.makeText( MainActivity.this,language,Toast.LENGTH_SHORT ).show();
                 context=LocaleHelper.setLocale( MainActivity.this,"en" );
                 resources=context.getResources();
 
@@ -331,14 +352,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 addLostText.setText( resources.getString( R.string.addLostItem) );
                 addFoundText.setText( resources.getString( R.string.addFoundItem) );
                 qrcodeText.setText( resources.getString( R.string.QRcode ) );
+                
+                NavigationView navigationView=findViewById( R.id.all_item );
 
-                //Menu home= findViewById( R.id.all_item );
+
+
+              //  menu.findItem( R.id.all_item ).setTitle( "ana" );
+
+                //i home= findViewById( R.id.all_item );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
                 //menu.findItem( R.id.all_item ).setTitle( "lALA");
                 //Toast.makeText( MainActivity.this,resources.getString( R.string.home ),Toast.LENGTH_SHORT ).show();
 
             }catch (Exception e){
-                Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
 
             }finally {
                 context=LocaleHelper.setLocale( MainActivity.this,"en" );
@@ -358,9 +385,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         }else if(language!=null && language.equals( ("Bengal") )){
-            Toast.makeText( getApplicationContext(),"Yo",Toast.LENGTH_LONG ).show();
+           // Toast.makeText( getApplicationContext(),"Yo",Toast.LENGTH_LONG ).show();
             try {
-                Toast.makeText( MainActivity.this,language,Toast.LENGTH_SHORT ).show();
+               // Toast.makeText( MainActivity.this,language,Toast.LENGTH_SHORT ).show();
                 context=LocaleHelper.setLocale( MainActivity.this,"bn" );
                 resources=context.getResources();
                 //Menu home= findViewById( R.id.all_item );
@@ -374,10 +401,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
                // Toast.makeText( MainActivity.this,resources.getString( R.string.home ),Toast.LENGTH_SHORT ).show();
             }catch (Exception e){
-                Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
+               // Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
             }
         }
-
 
 
 
@@ -429,20 +455,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
         switch (menuItem.getItemId()){
             case R.id.all_item:
                 feedItemAllDisplay();
-                Toast.makeText( this,"all",Toast.LENGTH_LONG ).show();
+                //Toast.makeText( this,"all",Toast.LENGTH_LONG ).show();
 
                 break;
-            /*case R.id.lost:
-                lostItemFeed();
-                Toast.makeText( this,"lost",Toast.LENGTH_LONG ).show();
-                break;
-            case R.id.found:
-                foundItemFeed();
-                Toast.makeText( this,"found",Toast.LENGTH_LONG ).show();
-                break;*/
+
             case R.id.login:
                 Intent intent=new Intent(this,Login.class );
                 startActivity( intent );
@@ -493,6 +513,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          * Checking if the user is logged in or not
          */
         super.onStart();
+
         FirebaseUser users = mAuth.getCurrentUser();
        // String user= getIntent().getStringExtra( "user" );
        // user1=mAuth.getCurrentUser();
@@ -500,7 +521,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // User is signed in
             String name = users.getDisplayName();
             String s =users.getPhoneNumber();
-            Toast.makeText( this,"Phone"+s,Toast.LENGTH_LONG ).show();
+            //Toast.makeText( this,"Phone"+s,Toast.LENGTH_LONG ).show();
 
         } else {
             // No user is signed in
@@ -520,7 +541,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // User is signed in
             String name_user = users.getDisplayName();
             String s =users.getPhoneNumber();
-            Toast.makeText( this,name_user+" "+s,Toast.LENGTH_LONG ).show();
+           // Toast.makeText( this,name_user+" "+s,Toast.LENGTH_LONG ).show();
             name.setText( name_user );
             phoneuser.setText( s );
         }
@@ -600,7 +621,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     adapterFeed=new FeedDataAdapter( getApplicationContext(),listDataFeed );
                    // Collections.reverse( Collections.singletonList( adapter ) );
-                    Toast.makeText( MainActivity.this,""+adapterFeed,Toast.LENGTH_LONG ).show();
+                   // Toast.makeText( MainActivity.this,""+adapterFeed,Toast.LENGTH_LONG ).show();
                     recyclerView.setAdapter(adapterFeed);
 
                 }
@@ -608,13 +629,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText( MainActivity.this,"databse failed "+databaseError ,Toast.LENGTH_LONG ).show();
+                //Toast.makeText( MainActivity.this,"databse failed "+databaseError ,Toast.LENGTH_LONG ).show();
             }
         });
 
     }
 
+    public boolean onMenuOpened(int featureid,Menu menu){
+
+          if (shouldChangeMenuLabels){
+             // menu.clear();
+             // MenuInflater inflater = getMenuInflater();
+              menu.clear();
+              MenuInflater inflater = getMenuInflater(); // -->onCreateMenu (Menu)
+              inflater.inflate(R.menu.locale_menu, menu);
+               //menu.findItem( R.id.all_item ).setTitle( "lalal" );
+              shouldChangeMenuLabels=false;
+          }
+
+
+        return super.onMenuOpened( featureid,menu );
+    }
     public boolean onCreateOptionsMenu(Menu menu){
+
+
         getMenuInflater().inflate( R.menu.search_menu,menu );
         SearchManager searchManager = (SearchManager) getSystemService( Context.SEARCH_SERVICE);
 
@@ -661,8 +699,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         //searchView.onActionViewCollapsed();
        // MenuItem actionMenuItem = menu.findItem(R.id.myActionItem);
 
-        return  true;//super.onCreateOptionsMenu( menu );
+        return   super.onCreateOptionsMenu( menu );
     }
+
+
    /* private void processSearch(String s){
         final DatabaseReference nm= FirebaseDatabase.getInstance().getReference("lostItem");
         Query query=nm.child( "category1" ).startAt( s ).endAt( s+"\uf8ff" ).orderByChild( "timestamp" );

@@ -59,7 +59,7 @@ private ActivityResultLauncher<Intent> imageACtivityResultLauncher;
 ArrayList<Uri> imageList = new ArrayList<Uri>(  );
 int uploadCount=0;
 StorageReference imageFolder;
-private int countImgData;
+private int countImgData=0;
 private Uri imageUri;
 
     Button btn;
@@ -93,7 +93,7 @@ private Uri imageUri;
         sharedPreferences2 = getApplicationContext().getSharedPreferences("MyLang", 0);
         String languageFromSharedPRef = sharedPreferences2.getString( "userLanguageChoice", null );
 
-        Toast.makeText( getApplicationContext(), languageFromSharedPRef,Toast.LENGTH_LONG ).show();
+        //Toast.makeText( getApplicationContext(), languageFromSharedPRef,Toast.LENGTH_LONG ).show();
         languageChangeProg( languageFromSharedPRef );
 // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -201,7 +201,7 @@ private Uri imageUri;
              time_str=time.getText().toString().trim();
              desc_str=desc.getText().toString().trim();
              final String itemtype=getIntent().getStringExtra( "item_type" );
-             Toast.makeText( AddItem.this,"Lost : "+(itemtype=="Lost"),Toast.LENGTH_SHORT ).show();
+             //Toast.makeText( AddItem.this,"Lost : "+(itemtype=="Lost"),Toast.LENGTH_SHORT ).show();
         /*Toast.makeText( AddItem.this,"what :"+what_str,Toast.LENGTH_SHORT ).show();
         Toast.makeText( AddItem.this,"addr :"+address_str,Toast.LENGTH_SHORT ).show();
         Toast.makeText( AddItem.this,"time :"+time_str,Toast.LENGTH_SHORT ).show();
@@ -222,7 +222,7 @@ private Uri imageUri;
              //primaryKey=primaryKey.replaceAll( "\\+","");
             // primaryKey=primaryKey.replaceAll( ".","");
              //primaryKey=primaryKey.replaceAll( " ","");
-             Toast.makeText( AddItem.this,"primary key :"+primaryKey,Toast.LENGTH_SHORT ).show();
+             //Toast.makeText( AddItem.this,"primary key :"+primaryKey,Toast.LENGTH_SHORT ).show();
 
 
                  /**
@@ -240,6 +240,7 @@ private Uri imageUri;
                              @Override
                              public void onSuccess(Uri uri) {
                                  String url = String.valueOf( uri );
+                                 Toast.makeText( getApplicationContext(),url, Toast.LENGTH_LONG ).show();
                                  funcStoreLink(url,itemtype,primaryKey);
                              }
                          } );
@@ -251,7 +252,7 @@ private Uri imageUri;
 /**
  * Entering Data into lostItem and into Feed child with status 0
  */
-                 Toast.makeText( AddItem.this,"Lost :"+itemtype,Toast.LENGTH_SHORT ).show();
+                 //Toast.makeText( AddItem.this,"Lost :"+itemtype,Toast.LENGTH_SHORT ).show();
                  DatabaseAddItem dataAdd = new DatabaseAddItem( user_phone,primaryKey,
                          Category,checkboxitem,what_str,address_str,time_str,timestamp,desc_str,"0");//status 0 if admin takes no action
                                                                                                            //status 1 if admin takes action
@@ -268,7 +269,7 @@ private Uri imageUri;
                  /**
                   * Entering Data into foundItem and into Feed child with status 0
                   */
-                 Toast.makeText( AddItem.this,"Lost :"+itemtype,Toast.LENGTH_SHORT ).show();
+                 //Toast.makeText( AddItem.this,"Lost :"+itemtype,Toast.LENGTH_SHORT ).show();
                  DatabaseAddItem dataAdd = new DatabaseAddItem( user_phone,primaryKey,
                          Category,checkboxitem,what_str,address_str,time_str,timestamp,desc_str,"0");
                  dataAdd.writeNewUserFound( user_phone,primaryKey,
@@ -374,7 +375,7 @@ private Uri imageUri;
                 selectCategorytxt.setText( resources.getString( R.string.selectacat ) );
                 imgtxt.setText( resources.getString( R.string.uploadImage ) );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
-                Toast.makeText( AddItem.this,resources.getString( R.string.whatisit ),Toast.LENGTH_SHORT ).show();
+                //Toast.makeText( AddItem.this,resources.getString( R.string.whatisit ),Toast.LENGTH_SHORT ).show();
             }catch (Exception e){
                 //Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
             }
@@ -399,7 +400,7 @@ private Uri imageUri;
         if(i!=2){
             idTypes.setVisibility( View.GONE );
         }
-        Toast.makeText(AddItem.this,Category,Toast.LENGTH_LONG).show();
+       // Toast.makeText(AddItem.this,Category,Toast.LENGTH_LONG).show();
 
     }
 
@@ -499,7 +500,7 @@ private Uri imageUri;
             e.printStackTrace();
         }
         System.out.println("Today is " + date.getTime());
-        Toast.makeText( AddItem.this,"timestamp milli:"+ date.getTime(),Toast.LENGTH_LONG).show();
+      //  Toast.makeText( AddItem.this,"timestamp milli:"+ date.getTime(),Toast.LENGTH_LONG).show();
         return String.valueOf( date.getTime() );
     }
 }

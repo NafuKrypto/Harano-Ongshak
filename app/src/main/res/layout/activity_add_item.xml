@@ -43,8 +43,10 @@
     <Spinner
         android:id="@+id/category"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:layout_marginTop="10dp"
+
+        android:background="@drawable/editbox"
 
         />
 
@@ -105,52 +107,62 @@
 
     <EditText
         android:id="@+id/what"
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:hint="@string/whatisit"
-        android:fontFamily="@font/baloo"
+        android:textColor="#000"
+        android:fontFamily="@font/anonymous_pro"
         android:layout_marginTop="10dp"
         android:inputType="text"
-        android:textColorHint="@color/ash"
+       android:textColorHint="#000"
         android:background="@drawable/editbox"
         />
     <EditText
         android:id="@+id/address"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:textColor="#000"
+        android:padding="10dp"
         android:hint=" Address where you lost/found item"
-        android:inputType="textPostalAddress"
-        android:fontFamily="@font/baloo"
+        android:inputType="text"
+        android:fontFamily="@font/anonymous_pro"
         android:layout_marginTop="10dp"
-        android:textColorHint="@color/ash"
+        android:textColorHint="#000"
         android:background="@drawable/editbox"
         />
     <EditText
         android:id="@+id/time"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:padding="10dp"
         android:hint=" Date Formate:dd/mm/yyyy"
         android:clickable="false"
         android:cursorVisible="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
         android:inputType="datetime"
-        android:fontFamily="@font/baloo"
+        android:fontFamily="@font/anonymous_pro"
+        android:textColor="#000"
         android:layout_marginTop="10dp"
-        android:textColorHint="@color/ash"
+        android:textColorHint="#000"
         android:background="@drawable/editbox"
         />
     <EditText
         android:id="@+id/desc"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:padding="15dp"
+        android:layout_gravity="center"
+
         android:hint=" Description(color,size,number details)"
-        android:inputType="textShortMessage"
-        android:fontFamily="@font/baloo"
+
+        android:fontFamily="@font/anonymous_pro"
+        android:textColor="#000"
         android:gravity="top"
         android:maxLength="200"
         android:layout_marginTop="5dp"
-        android:textColorHint="@color/ash"
+        android:textColorHint="#000"
         android:background="@drawable/editbox"
         />
     <LinearLayout
@@ -175,12 +187,12 @@
         <ImageButton
             android:id="@+id/chooseImg"
             android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginLeft="30dp"
+            android:layout_height="42dp"
             android:layout_gravity="center"
+            android:layout_marginLeft="30dp"
             android:background="@drawable/ic_insert_photo_black_24dp"
 
-               />
+            />
     </LinearLayout>
 
 

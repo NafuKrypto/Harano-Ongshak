@@ -19,9 +19,10 @@
 
             />
         <TextView
+            android:id="@+id/contact1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GET IN TOUCH "
+            android:text="@string/getintouch"
             android:textColor="@color/colorBrand3"
             android:textStyle="bold"
             android:fontFamily="@font/baloo"
@@ -39,9 +40,10 @@
          android:layout_marginTop="20dp"
          />
     <TextView
+        android:id="@+id/contact2"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="218 Elephant Road, Sahera Tropical Center, Laver 10, Room 1111, Dhaka"
+        android:text="@string/contactAdd"
         android:textColor="#FF9800"
         android:fontFamily="@font/anonymous_pro_bold"
         android:layout_marginTop="10dp"
@@ -60,13 +62,14 @@
         />
 
     <TextView
+        android:id="@+id/contact3"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/anonymous_pro_bold"
         android:gravity="center"
-        android:text="01316-753226"
+        android:text="@string/contactPhone"
         android:textColor="#FF9800"
         android:textSize="15sp"
         android:textStyle="bold" />

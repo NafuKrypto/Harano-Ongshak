@@ -83,9 +83,11 @@ public class DescriptiveView extends AppCompatActivity {
         addressTxt.setText( address );
         Toast.makeText( getApplicationContext(),"category 2:"+cat2,Toast.LENGTH_LONG ).show();
         category1Text.setText( category1 );
-        if (category2!=null){
+        if (category2.equalsIgnoreCase( "None" )){
             category2Text.setText( category2 );
             category2Text.setVisibility( View.VISIBLE );
+        }else{
+            category2Text.setVisibility( View.GONE );
         }
         dateTxt.setText( time );
         detailsTxt.setText( desc );
@@ -107,21 +109,21 @@ public class DescriptiveView extends AppCompatActivity {
 
                         //listImage.add( imageclassUri);
                         try{ imageUrls[i]=imageclassUri.getImageLink();
-                            Toast.makeText( getApplicationContext(),imageclassUri.getImageLink(),Toast.LENGTH_LONG ).show();
-                            Toast.makeText( getApplicationContext(),imageUrls[i],Toast.LENGTH_LONG ).show();
+                           // Toast.makeText( getApplicationContext(),imageclassUri.getImageLink(),Toast.LENGTH_LONG ).show();
+                            //Toast.makeText( getApplicationContext(),imageUrls[i],Toast.LENGTH_LONG ).show();
                          i++;}catch (Exception e){
-                            Toast.makeText( getApplicationContext(), e.getMessage(),Toast.LENGTH_LONG ).show();
+                           // Toast.makeText( getApplicationContext(), e.getMessage(),Toast.LENGTH_LONG ).show();
                         }
                     }
                      adapter=new ViewPagerAdapter( getApplicationContext(),imageUrls);
                       if(adapter==null){
-                          Toast.makeText( getApplicationContext(),"null",Toast.LENGTH_SHORT ).show();
+                        //  Toast.makeText( getApplicationContext(),"null",Toast.LENGTH_SHORT ).show();
 
                       }
                       try {
                           viewPager.setAdapter( adapter );
                       } catch (Exception e){
-                          Toast.makeText( getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT ).show();
+                          //Toast.makeText( getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT ).show();
                       }
                      //textView.setText( imageUrls[0]+" "+imageUrls[1]+" "+imageUrls[2] );
                     //textView.setText( String.valueOf( listImage ) );

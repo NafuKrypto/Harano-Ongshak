@@ -26,6 +26,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
+
         >
         <!--<ScrollView
             android:layout_width="match_parent"
@@ -88,23 +89,29 @@
                 app:cardCornerRadius="15dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                 >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/lost"
-                    android:layout_gravity="center"
-                     />
 
-                <TextView
-                    android:id="@+id/lostTextview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
-                    android:gravity="center"
-                    android:text="@string/lostItem"
-                    android:textColor="@color/colorBrand3"
-                    android:textSize="15dp" />
+                 >
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:background="@mipmap/lost"
+                        android:layout_gravity="center"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/lostTextview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="70dp"
+
+                        android:gravity="center"
+                        android:text="@string/lostItem"
+                        android:textColor="@color/colorBrand3"
+                        android:textSize="15dp" />
+
+
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
@@ -116,16 +123,16 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="15dp">
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/found"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@mipmap/pawprint"
                     android:layout_gravity="center"
                      />
                 <TextView
                     android:id="@+id/foundTextview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="68dp"
+                    android:layout_marginTop="70dp"
                     android:text="@string/foundItem"
                     android:textColor="@color/colorBrand3"
                     android:textSize="15dp"
@@ -134,7 +141,7 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/addLostItemCard"
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="110dp"
              app:cardCornerRadius="15dp"
             android:layout_marginTop="15dp"
             android:layout_marginStart="10dp"
@@ -142,17 +149,17 @@
 
             >
             <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:background="@drawable/add"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@mipmap/add"
                 android:layout_gravity="center"
                  />
 
             <TextView
                 android:id="@+id/addLostTextview"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="73dp"
                 android:gravity="center"
                 android:text="@string/addLostItem"
                 android:textColor="@color/colorBrand3"
@@ -178,14 +185,14 @@
                 android:layout_marginBottom="15dp"
                 >
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/add"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@mipmap/cemetery"
                     android:layout_gravity="center"
                     />
                 <TextView
                     android:id="@+id/addFoundTextview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="72dp"
                     android:text="@string/addFoundItem"
@@ -203,14 +210,14 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="15dp">
                 <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
-                    android:background="@drawable/found"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@mipmap/qrcode"
                     android:layout_gravity="center"
                     />
                 <TextView
                     android:id="@+id/qrCodeTextview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="72dp"
                     android:text="@string/QRcode"
@@ -221,8 +228,26 @@
 
 
         </LinearLayout>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:orientation="horizontal"
+          android:gravity="center"
+          android:background="@color/colorBrand2">
+        <Button
+            android:id="@+id/refreshBtn"
 
-
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:background="@color/colorBrand3"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Refresh"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            />
+      </LinearLayout>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler1"
             android:layout_width="match_parent"

@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -198,18 +199,32 @@ int selectedId;
          final EditText address = new EditText(QRCodeForm.this);
           final EditText email = new EditText(QRCodeForm.this);
         name.setHint( R.string.formName );
+        name.setGravity( Gravity.CENTER );
+        name.setBackgroundResource( R.drawable.editbox);
+
         phoneNumber.setHint( R.string.phone);
+        phoneNumber.setGravity( Gravity.CENTER );
+        phoneNumber.setBackgroundResource( R.drawable.editbox);
+
         address.setHint( R.string.address2 );
+        address.setGravity( Gravity.CENTER );
+        address.setBackgroundResource( R.drawable.editbox);
+
         email.setHint( R.string.email );
+        email.setGravity( Gravity.CENTER );
+        email.setBackgroundResource( R.drawable.editbox);
         /*LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
                 LinearLayout.LayoutParams.WRAP_CONTENT);*/
         LinearLayout lp=new LinearLayout( getApplicationContext() );
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins( 20,20,20,20);
         lp.setOrientation( LinearLayout.VERTICAL );
-        lp.addView( name );
-        lp.addView( phoneNumber );
-        lp.addView( address );
-        lp.addView( email );
+        lp.addView( name,layoutParams );
+        lp.addView( phoneNumber,layoutParams );
+        lp.addView( address ,layoutParams);
+        lp.addView( email ,layoutParams);
         alertDialog.setView( lp );
 
         alertDialog.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
@@ -254,20 +269,36 @@ int selectedId;
         final EditText address = new EditText(QRCodeForm.this);
         final EditText email = new EditText(QRCodeForm.this);
         model.setHint( R.string.model );
+        model.setGravity( Gravity.CENTER );
+        model.setBackgroundResource( R.drawable.editbox);
+
         name.setHint( R.string.formName );
+        name.setGravity( Gravity.CENTER );
+        name.setBackgroundResource( R.drawable.editbox);
+
         phoneNumber.setHint( R.string.phone);
+        phoneNumber.setGravity( Gravity.CENTER );
+        phoneNumber.setBackgroundResource( R.drawable.editbox);
+
         address.setHint( R.string.address2 );
+        address.setGravity( Gravity.CENTER );
+        address.setBackgroundResource( R.drawable.editbox);
+
         email.setHint( R.string.email );
-        /*LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);*/
+        email.setGravity( Gravity.CENTER );
+        email.setBackgroundResource( R.drawable.editbox);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins( 20,20,20,20);
+
         LinearLayout lp=new LinearLayout( getApplicationContext() );
         lp.setOrientation( LinearLayout.VERTICAL );
-        lp.addView( model );
-        lp.addView( name );
-        lp.addView( phoneNumber );
-        lp.addView( address );
-        lp.addView( email );
+        lp.addView( model,layoutParams );
+        lp.addView( name ,layoutParams);
+        lp.addView( phoneNumber,layoutParams );
+        lp.addView( address,layoutParams );
+        lp.addView( email ,layoutParams);
         alertDialog.setView( lp );
 
         alertDialog.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
@@ -313,20 +344,35 @@ int selectedId;
         final EditText address = new EditText(QRCodeForm.this);
         final EditText email = new EditText(QRCodeForm.this);
         office.setHint( R.string.office );
+        office.setGravity( Gravity.CENTER );
+        office.setBackgroundResource( R.drawable.editbox);
+
         name.setHint( R.string.formName );
+        name.setGravity( Gravity.CENTER );
+        name.setBackgroundResource( R.drawable.editbox);
+
         phoneNumber.setHint( R.string.phone);
+        phoneNumber.setGravity( Gravity.CENTER );
+        phoneNumber.setBackgroundResource( R.drawable.editbox);
+
         address.setHint( R.string.address2 );
+        address.setGravity( Gravity.CENTER );
+        address.setBackgroundResource( R.drawable.editbox);
+
         email.setHint( R.string.email );
-        /*LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);*/
+        email.setGravity( Gravity.CENTER );
+        email.setBackgroundResource( R.drawable.editbox);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins( 20,20,20,20);
+
         LinearLayout lp=new LinearLayout( getApplicationContext() );
         lp.setOrientation( LinearLayout.VERTICAL );
-        lp.addView( office);
-        lp.addView( name );
-        lp.addView( phoneNumber );
-        lp.addView( address );
-        lp.addView( email );
+        lp.addView( office,layoutParams);
+        lp.addView( name ,layoutParams);
+        lp.addView( phoneNumber,layoutParams );
+        lp.addView( address ,layoutParams);
+        lp.addView( email,layoutParams );
         alertDialog.setView( lp );
 
         alertDialog.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
@@ -371,17 +417,26 @@ int selectedId;
         final EditText networkType = new EditText(QRCodeForm.this);
 
         network_name.setHint( R.string.networkName );
-        networkType.setHint( R.string.networkType );
-        password.setHint( R.string.passwordNet);
+        network_name.setGravity( Gravity.CENTER );
+        network_name.setBackgroundResource( R.drawable.editbox);
 
-        /*LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);*/
+        networkType.setHint( R.string.networkType );
+        networkType.setGravity( Gravity.CENTER );
+        networkType.setBackgroundResource( R.drawable.editbox);
+
+        password.setHint( R.string.passwordNet);
+        password.setGravity( Gravity.CENTER );
+        password.setBackgroundResource( R.drawable.editbox);
+
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins( 20,20,20,20);
+
         LinearLayout lp=new LinearLayout( getApplicationContext() );
         lp.setOrientation( LinearLayout.VERTICAL );
-        lp.addView( network_name);
-        lp.addView( networkType );
-        lp.addView( password );
+        lp.addView( network_name,layoutParams);
+        lp.addView( networkType ,layoutParams);
+        lp.addView( password,layoutParams );
 
         alertDialog.setView( lp );
 
@@ -423,14 +478,16 @@ int selectedId;
 
 
         url.setHint( R.string.url );
+        url.setGravity( Gravity.CENTER );
+        url.setBackgroundResource( R.drawable.editbox);
 
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        layoutParams.setMargins( 20,20,20,20);
 
-        /*LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.WRAP_CONTENT,
-                LinearLayout.LayoutParams.WRAP_CONTENT);*/
         LinearLayout lp=new LinearLayout( getApplicationContext() );
         lp.setOrientation( LinearLayout.VERTICAL );
-        lp.addView( url);
+        lp.addView( url,layoutParams);
         alertDialog.setView( lp );
 
         alertDialog.setPositiveButton( "OK", new DialogInterface.OnClickListener() {
@@ -470,7 +527,7 @@ int selectedId;
                     selectItem=1;
                     selectCat="phone";
                     //createAlertDialougeFuncPhone();
-                    Toast.makeText( getApplicationContext(),"phone is checked",Toast.LENGTH_LONG ).show();
+                   // Toast.makeText( getApplicationContext(),"phone is checked",Toast.LENGTH_LONG ).show();
 
 
                 }

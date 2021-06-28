@@ -83,7 +83,7 @@ public class Login extends AppCompatActivity {
 
                     String passwordFromDB = snapshot.child(phone).child("Password").getValue(String.class);
                     String username=snapshot.child( phone ).child( "Username" ).getValue(String.class);
-                    Toast.makeText(Login.this, passwordFromDB, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(Login.this, passwordFromDB, Toast.LENGTH_LONG).show();
                     if (passwordFromDB.equals( user_password )) {
                         //check = true;
                         //store data to sharedpreference
@@ -103,7 +103,7 @@ public class Login extends AppCompatActivity {
                         warning.setText( "Password is incorrect" );
                     }
                 }else if(!snapshot.exists()){
-                    Toast.makeText(Login.this, ""+ check[0] , Toast.LENGTH_LONG).show();
+                   // Toast.makeText(Login.this, ""+ check[0] , Toast.LENGTH_LONG).show();
                     //check[0] =false;
                    // Toast.makeText(Login.this, ""+ check[0] , Toast.LENGTH_LONG).show();
                     warning.setVisibility(View.VISIBLE);

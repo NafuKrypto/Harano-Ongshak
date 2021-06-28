@@ -10,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
@@ -96,7 +95,7 @@ public class Search extends AppCompatActivity {
                 holder.descTxt.setText( model.getDesc() );
                 holder.date.setText( model.getTime() );
                 holder.category.setText( model.getCategory1() );
-                Toast.makeText( getApplicationContext(),model.getWhatItem(),Toast.LENGTH_LONG ).show();
+               // Toast.makeText( getApplicationContext(),model.getWhatItem(),Toast.LENGTH_LONG ).show();
                // holder.setDetails( model.getPhone(), model.getAddress(), model.getCategory1(), model.getCategory2(), model.getDesc(), model.getStatus(), model.getTime(), model.getTimestamp(), model.getWhatItem() );
 
            }
@@ -162,7 +161,7 @@ public class Search extends AppCompatActivity {
                 textView.setText( resources.getString( R.string.searchText ) );
                 editText.setHint( resources.getString( R.string.search ) );
                 //menu.findItem( R.id.all_item ).setTitle( resources.getString( R.string.home ));
-                Toast.makeText( Search.this,resources.getString( R.string.whatisit ),Toast.LENGTH_SHORT ).show();
+               // Toast.makeText( Search.this,resources.getString( R.string.whatisit ),Toast.LENGTH_SHORT ).show();
             }catch (Exception e){
                 //Toast.makeText( MainActivity.this,e.getMessage(),Toast.LENGTH_SHORT ).show();
             }

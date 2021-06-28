@@ -94,7 +94,7 @@ public class SignUp extends AppCompatActivity {
 
                        } else {
 
-                       Toast.makeText(SignUp.this,"Invalid Information",Toast.LENGTH_SHORT).show();
+                     //  Toast.makeText(SignUp.this,"Invalid Information",Toast.LENGTH_SHORT).show();
 
                        }
 
@@ -105,7 +105,7 @@ public class SignUp extends AppCompatActivity {
 
            }
     });}catch (Exception e){
-            Toast.makeText( SignUp.this,"exception: "+e.getMessage(),Toast.LENGTH_LONG ).show();
+           // Toast.makeText( SignUp.this,"exception: "+e.getMessage(),Toast.LENGTH_LONG ).show();
         }
 
 
@@ -119,7 +119,7 @@ public class SignUp extends AppCompatActivity {
 
            @Override
            public void onVerificationFailed(@NonNull FirebaseException e) {
-               Toast.makeText(SignUp.this,e.getMessage(),Toast.LENGTH_LONG).show();
+              // Toast.makeText(SignUp.this,e.getMessage(),Toast.LENGTH_LONG).show();
 
            }
 

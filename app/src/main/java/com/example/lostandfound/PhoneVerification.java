@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,7 +43,7 @@ public class PhoneVerification extends AppCompatActivity {
                 if (!verificationCode.isEmpty()){
                     PhoneAuthCredential credential = PhoneAuthProvider.getCredential(systemOtp,verificationCode);
                     signIn(credential);
-                    Toast.makeText(PhoneVerification.this,"Verification code:"+verificationCode+" System code "+systemOtp,Toast.LENGTH_LONG).show();
+                   // Toast.makeText(PhoneVerification.this,"Verification code:"+verificationCode+" System code "+systemOtp,Toast.LENGTH_LONG).show();
 
                         /**
                          * user data passing to database class USER
@@ -57,7 +56,7 @@ public class PhoneVerification extends AppCompatActivity {
 
 
                 }else {
-                    Toast.makeText(PhoneVerification.this,"Please enter your otp",Toast.LENGTH_LONG).show();
+                    //Toast.makeText(PhoneVerification.this,"Please enter your otp",Toast.LENGTH_LONG).show();
                 }
 
             }
@@ -71,9 +70,9 @@ public class PhoneVerification extends AppCompatActivity {
                 if(task.isSuccessful()){
 
                     sendtoNext();
-                    Toast.makeText(PhoneVerification.this,"Successful",Toast.LENGTH_LONG).show();
+                   // Toast.makeText(PhoneVerification.this,"Successful",Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(PhoneVerification.this,"UnSuccessful "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
+                   // Toast.makeText(PhoneVerification.this,"UnSuccessful "+task.getException().getMessage(),Toast.LENGTH_LONG).show();
                 }
             }
         });

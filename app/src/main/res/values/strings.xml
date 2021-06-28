@@ -87,5 +87,20 @@ dilivered to your House address. Delivery Area now Dhaka city, Chittagong City a
     <string name="passwordNet">Network password</string>
     <string name="networkType">Network type-WPA-WPA@-WEP</string>
     <string name="url">URL</string>
+
+    <string name="termsandcond">Terms And Conditions"</string>
+    <string name="terms1stpara">Harano is the lost and found service app as a fee app. This service is provided by the Harano at no cost and intended for use as is. If you choose use our service, than you agree to the collection and use information that we collect is used for providing the service. For better experience while using our service we may require you to provide us with certain personal identifiable information as like name, contact, e-mail address, location, Photo.</string>
+    <string name="terms2ndpara">Changes to this privacy policy</string>
+    <string name="terms3rdpara">we may update our privacy policy for time to time, we will notify you of any changes by posting the new privacy policy on this page.
+        </string>
+    <string name="terms4thpara">Data</string>
+    <string name="terms5thpara">Users data will always be secure .</string>
+    <string name="terms6thpara">Advertising cookies</string>
+    <string name="terms7thpara">we may use third parties, such as Google, to serve ads.</string>
+    <string name="terms8thpara">If you have any question or suggestions about our privacy policy, Please contact us</string>
+
+    <string name="getintouch">GET IN TOUCH</string>
+    <string name="contactAdd">218 Elephant Road, Sahera Tropical Center, Laver 10, Room 1111, Dhaka</string>
+    <string name="contactPhone">01316-753226</string>
 </resources>
 
