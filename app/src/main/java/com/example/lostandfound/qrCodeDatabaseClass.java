@@ -206,8 +206,10 @@ public class qrCodeDatabaseClass {
 
         mDatabase.setValue( m );
 
-
+        //isWritten( true );
 
 
     }
+
+
 }

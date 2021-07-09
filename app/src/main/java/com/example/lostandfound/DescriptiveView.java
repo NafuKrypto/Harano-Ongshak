@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -81,7 +80,7 @@ public class DescriptiveView extends AppCompatActivity {
 
         whatText.setText( what );
         addressTxt.setText( address );
-        Toast.makeText( getApplicationContext(),"category 2:"+cat2,Toast.LENGTH_LONG ).show();
+        //Toast.makeText( getApplicationContext(),"category 2:"+cat2,Toast.LENGTH_LONG ).show();
         category1Text.setText( category1 );
         if (category2.equalsIgnoreCase( "None" )){
             category2Text.setText( category2 );

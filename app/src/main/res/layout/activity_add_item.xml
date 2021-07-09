@@ -95,7 +95,7 @@
         <CheckBox android:id="@+id/officeId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kid"
+            android:text="Office id "
             android:onClick="onCheckboxClicked"/>
         <CheckBox android:id="@+id/othersId"
             android:layout_width="wrap_content"

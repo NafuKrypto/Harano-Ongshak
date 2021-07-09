@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -17,6 +18,9 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class QRCodeForm extends AppCompatActivity {
@@ -24,6 +28,7 @@ SharedPreferences sharedPreferencesQr;
 Context context ;
 Resources resources;
 Button submitButton;
+Drawable img ;
 int selectItem=0;
 TextView textView;
 String s="None";
@@ -39,6 +44,9 @@ int selectedId;
         RadioGroup radioGroup=findViewById( R.id.radioGroup );
         submitButton=findViewById( R.id.btn );
         textView=findViewById( R.id.msg );
+
+        Resources res = getResources();
+        img=res.getDrawable(android.R.drawable.arrow_up_float);
        /* camera=findViewById( R.id.camera );
         phone=findViewById( R.id.phone);
         laptop=findViewById( R.id.laptop );
@@ -190,7 +198,7 @@ int selectedId;
         /**
          * for Atm and bla bla bla
          */
-        Toast.makeText( getApplicationContext(),"phone alertDialogue",Toast.LENGTH_LONG ).show();
+        //Toast.makeText( getApplicationContext(),"phone alertDialogue",Toast.LENGTH_LONG ).show();
         AlertDialog.Builder alertDialog = new AlertDialog.Builder(QRCodeForm.this);
         alertDialog.setTitle(R.string.fillUpAllTheInfo);
 
@@ -237,7 +245,14 @@ int selectedId;
                 emailS=email.getText().toString().trim();
                 qrCodeDatabaseClass database4=new qrCodeDatabaseClass( nameS,phonenumS,addressS,emailS,
                         area,selectCat,s,s,s,s,s,s,s,s,s,s,s,s,s,s);
-                database4.writeToDatabase();
+                try {
+                    database4.writeToDatabase();
+                    showAlertDialog();
+
+
+                }catch (Exception e){
+                     failedAlertDialog();
+                }
                // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -312,7 +327,16 @@ int selectedId;
                 email2S=email.getText().toString().trim();
                 qrCodeDatabaseClass database=new qrCodeDatabaseClass( s,s,s,s,area,selectCat,modelS,email2S,address2S,ownername2S,phonenum2S,
                         s,s,s,s,s,s,s,s,s);
-                database.writeToDatabase();
+
+
+                try {
+                    database.writeToDatabase();
+                    showAlertDialog();
+
+
+                }catch (Exception e){
+                    failedAlertDialog();
+                }
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -387,7 +411,16 @@ int selectedId;
 
                 qrCodeDatabaseClass database7=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
                         s,s,s,s,s,name3S,email3S,office3S,phone3S,address3S,s,s,s,s);
-                database7.writeToDatabase();
+
+                try {
+                    database7.writeToDatabase();
+                    showAlertDialog();
+
+
+                }catch (Exception e){
+                    failedAlertDialog();
+                }
+
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -449,7 +482,16 @@ int selectedId;
                 networkPass=password.getText().toString().trim();
                 qrCodeDatabaseClass database19=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
                         s,s,s,s,s,s,s,s,s,s,networkName,NetworkType,networkPass, s );
-                database19.writeToDatabase();
+
+
+                try {
+                    database19.writeToDatabase();
+                    showAlertDialog();
+
+
+                }catch (Exception e){
+                    failedAlertDialog();
+                }
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -498,7 +540,15 @@ int selectedId;
 
                 qrCodeDatabaseClass database17=new qrCodeDatabaseClass(s,s,s,s,area,selectCat,
                         s,s,s,s,s,s,s,s,s,s,s,s,s, Url );
-                database17.writeToDatabase();
+
+                try {
+                    database17.writeToDatabase();
+                    showAlertDialog();
+
+
+                }catch (Exception e){
+                    failedAlertDialog();
+                }
                 // Toast.makeText( getApplicationContext(),nameS+" "+phonenumS+" "+addressS+" "+emailS,Toast.LENGTH_LONG  ).show();
 
             }
@@ -694,5 +744,51 @@ int selectedId;
                 }
                 break;
         }
+    }
+
+    private void showAlertDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(QRCodeForm.this);
+        final View customLayout = getLayoutInflater().inflate(R.layout.custom, null);
+        alertDialog.setView(customLayout);
+
+
+
+        final AlertDialog alert1 = alertDialog.create();
+        alert1.setCanceledOnTouchOutside(false);
+        alert1.show();
+        //alert1.getWindow().setLayout( 600,200 );
+
+        //After 5s the dialog will be closed
+        final Timer timer=new Timer(  );
+        timer.schedule( new TimerTask() {
+            @Override
+            public void run() {
+                alert1.dismiss();
+                timer.cancel();
+            }
+        } ,2000);
+
+    }
+
+    private void failedAlertDialog() {
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder( QRCodeForm.this );
+        final View customLayout = getLayoutInflater().inflate( R.layout.failed_custom_alert_dialog, null );
+        alertDialog.setView( customLayout );
+
+
+        final AlertDialog alert1 = alertDialog.create();
+        alert1.setCanceledOnTouchOutside( false );
+        alert1.show();
+        //alert1.getWindow().setLayout( 600,200 );
+
+        //After 5s the dialog will be closed
+        final Timer timer = new Timer();
+        timer.schedule( new TimerTask() {
+            @Override
+            public void run() {
+                alert1.dismiss();
+                timer.cancel();
+            }
+        }, 3000 );
     }
 }

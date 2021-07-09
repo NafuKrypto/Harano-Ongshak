@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         try {
               languageFromSharedPRef = sharedPreferences2.getString( "userLanguageChoice", null );
-            Toast.makeText( getApplicationContext(), languageFromSharedPRef,Toast.LENGTH_LONG ).show();
+            //Toast.makeText( getApplicationContext(), languageFromSharedPRef,Toast.LENGTH_LONG ).show();
             if (languageFromSharedPRef == null) {
                 Toast.makeText( MainActivity.this, "language from sharedpref is null ", Toast.LENGTH_SHORT ).show();
                 editor2.putString( "userLanguageChoice", "English" );
@@ -177,6 +177,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         recyclerView=findViewById( R.id.recycler1 );
         recyclerView.setHasFixedSize(true);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
@@ -205,7 +206,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Intent intentcard1=new Intent( MainActivity.this,LostItem.class );
                 startActivity( intentcard1);
-                finish();
+                //finish();
             }
         } );
 
@@ -214,7 +215,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Intent intentcard2=new Intent( MainActivity.this,FoundItem.class );
                 startActivity( intentcard2 );
-                finish();
+                //finish();
             }
         } );
 
@@ -227,11 +228,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     intentcard3.putExtra( "item_type", "Lost" );
                     intentcard3.putExtra( "phone", Phone );
                     startActivity( intentcard3 );
-                    finish();
+                   // finish();
                 }else if(Phone==null){
                     Intent intent5 = new Intent( MainActivity.this, Login.class );
                     startActivity( intent5 );
-                    finish();
+                    //finish();
                 }
             }
         } );
@@ -258,7 +259,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 Intent intent6 = new Intent( MainActivity.this,QRCodeForm.class );
                 startActivity( intent6 );
-                Toast.makeText( MainActivity.this,"QR Code",Toast.LENGTH_SHORT ).show();
+               // Toast.makeText( MainActivity.this,"QR Code",Toast.LENGTH_SHORT ).show();
             }
         } );
 
